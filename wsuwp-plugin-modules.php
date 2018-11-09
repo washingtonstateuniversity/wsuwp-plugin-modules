@@ -52,8 +52,6 @@ class WSUWP_Plugin_Modules {
 
 	private function add_modules() {
 
-		//include_once __DIR__ . '/modules/video/video-module.php';
-
 		include_once __DIR__ . '/modules/taxonomy-search/taxonomy-search-module.php';
 
 	} // End add_modules
