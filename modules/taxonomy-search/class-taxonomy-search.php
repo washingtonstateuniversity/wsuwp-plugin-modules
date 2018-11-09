@@ -94,8 +94,6 @@ class Taxonomy_Search {
 			'wsuwp-taxonomy-search-' . $context,
 		);
 
-		//var_dump( $args );
-
 		if ( ! empty( $args['class'] ) ) {
 
 			$classes[] = $args['class'];
@@ -127,7 +125,9 @@ class Taxonomy_Search {
 
 		if ( $echo ) {
 
+			// @codingStandardsIgnoreStart
 			echo $html;
+			// @codingStandardsIgnoreEnd
 
 		} else {
 
