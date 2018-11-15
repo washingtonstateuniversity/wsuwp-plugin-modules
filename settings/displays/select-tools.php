@@ -38,8 +38,8 @@
 	display: block;
 	position: absolute;
 	width: 0;
-    height: 0;
-    border-bottom: 25px solid rgba(0,0,0,0.5);
+	height: 0;
+	border-bottom: 25px solid rgba(0,0,0,0.5);
 	border-right: 10px solid transparent;
 	top: 0;
 	left: 100%;
