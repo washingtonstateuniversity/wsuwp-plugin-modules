@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: WSUWP Plugin Modules
-Version: 0.0.1
-Description: A skeleton project to use when starting a new WSU WordPress plugin. Replace this description.
-Author: washingtonstateuniversity, [Other Plugin Authors]
+Plugin Name: WSUWP Toolbox
+Version: 0.0.2
+Description: Plugin for allowing site creators to turn features on and off.
+Author: washingtonstateuniversity, Danial Bleile
 Author URI: https://web.wsu.edu/
 Plugin URI: https://github.com/washingtonstateuniversity/wsuwp-plugin-modules
 
