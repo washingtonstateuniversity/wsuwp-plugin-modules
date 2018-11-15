@@ -17,9 +17,9 @@ class Module_Script {
 
 	public function add_public_scripts() {
 
-		wp_enqueue_style( 'wsuwp-plugin-modules-public-css', wsuwp_mods_get_plugin_url() . '/css/public.css', array(), wsuwp_mods_get_plugin_version() );
+		wp_enqueue_style( 'wsuwp-plugin-modules-public-css', wsuwp_toolbox_get_plugin_url() . '/css/public.css', array(), wsuwp_toolbox_get_plugin_version() );
 
-		wp_enqueue_script( 'wsuwp-plugin-modules-public-js', wsuwp_mods_get_plugin_url() . '/js/public.js', array( 'jquery' ), wsuwp_mods_get_plugin_version(), true );
+		wp_enqueue_script( 'wsuwp-plugin-modules-public-js', wsuwp_toolbox_get_plugin_url() . '/js/public.js', array( 'jquery' ), wsuwp_toolbox_get_plugin_version(), true );
 
 	} // End add_pubic_scripts
 

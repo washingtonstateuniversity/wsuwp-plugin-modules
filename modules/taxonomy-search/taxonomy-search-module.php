@@ -10,7 +10,7 @@ if ( ! defined( 'WPINC' ) ) {
  *
  * @since 0.0.1
  */
-class Taxonomy_Search_Module {
+class Taxonomy_Search_Module extends Module {
 
 	/**
 	 * Version of taxonomy search module used the module.
@@ -18,7 +18,7 @@ class Taxonomy_Search_Module {
 	 * @since 0.0.1
 	 * @var string $version Version of module.
 	 */
-	public $version = '0.0.1';
+	protected $version = '0.0.1';
 
 	/**
 	 * Slug/ID for the module.
@@ -26,7 +26,20 @@ class Taxonomy_Search_Module {
 	 * @since 0.0.1
 	 * @var string $slug
 	 */
-	public $slug = 'wsuwp_taxonomy_search';
+	protected $slug = 'wsuwp_taxonomy_search';
+
+	/**
+	 * Registration args for the module
+	 *
+	 * @since 0.0.1
+	 * @var array $register_args Array of registration args
+	 */
+	protected $register_args = array(
+		'title'        => 'Taxonomy Search',
+		'description'  => 'Taxonomy Search Tools',
+		'priority'     => 10,
+		'capability'   => 'Super Admin',
+	); // End $register_args
 
 	/**
 	 * Default args use for shortcode and other presentation layers.
@@ -34,7 +47,7 @@ class Taxonomy_Search_Module {
 	 * @since 0.0.1
 	 * @var array $default_args
 	 */
-	public $default_args = array(
+	protected $default_args = array(
 		'taxonomy'      => 'post_tag', // Taxonomy to include in search.
 		'display'       => 'az-index', // Display to use when rendering.
 		'exclude'       => '', // Comma list of term IDs to exclude from search.
@@ -46,70 +59,14 @@ class Taxonomy_Search_Module {
 		'show_results'  => 1, // Show term results
 	);
 
-	public function __construct() {
-
-		// Call wp_init after the WordPress init action.
-		add_action( 'init', array( $this, 'wp_init' ), 10 );
-
-	} // End __construct
-
 
 	/**
-	 * Execute code at the init action of WordPress.
-	 *
-	 * @since 0.0.1
-	 */
-	public function wp_init() {
-
-		// Register the module.
-		$this->do_register_module();
-
-		// Check if is active. If is active do module.
-		if ( wsuwp_mods_is_active_module( $this->slug ) ) {
-
-			$this->do_module();
-
-		} // End if
-
-	} // End wp_init
-
-
-	/**
-	 * Register the module so it displays on the settings page.
+	 * Do the module. This should already have checked for active.
 	 *
 	 * @since 0.0.1
 	 *
-	 * @see functions-public.php wsuwp_mods_register_module
 	 */
-	protected function do_register_module() {
-
-		/**
-		 * Module registration args
-		 *
-		 * @see functions-public.php wsuwp_mods_register_module for a complete list of args.
-		 */
-		$register_args = array(
-			'version'      => $this->version,
-			'title'        => __( 'Taxonomy Search Module', 'wsuwp-plugin-modules' ),
-			'description'  => __( 'Taxonomy Search Tools', 'wsuwp-plugin-modules' ),
-			'priority'     => 10,
-			'capability'   => 'Super Admin',
-		); // End $register_args
-
-		// Register the module
-		wsuwp_mods_register_module( $this->slug, $register_args );
-
-	} // End do_register_module
-
-
-	/**
-	 * Do the module. This should be called after a check if is active.
-	 *
-	 * @since 0.0.1
-	 *
-	 * @see functions-public.php wsuwp_mods_is_active_module
-	 */
-	protected function do_module() {
+	protected function init_module() {
 
 		add_shortcode( $this->slug, array( $this, 'do_shortcode' ) );
 
@@ -145,6 +102,3 @@ class Taxonomy_Search_Module {
 
 
 } // End Video_Module
-
-// New instance of the module
-$wsuwp_taxonomy_search_module = new Taxonomy_Search_Module();
