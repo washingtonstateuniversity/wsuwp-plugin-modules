@@ -102,7 +102,7 @@ class Toolbox_Fonts {
 
 			$checked = ( in_array( $key, $fonts, true ) ) ? ' checked="checked"' : '';
 
-			echo '<label><input type="checkbox" name="wsu_toolbox_google_fonts[]" value="' . esc_attr( $key ) . '" ' . esc_attr( $checked ) . '/> ' . esc_html( $label ) . '</label>';
+			echo '<label><input type="checkbox" name="wsu_toolbox_google_fonts[]" value="' . esc_attr( $key ) . '" ' . esc_attr( $checked ) . '/> ' . esc_html( $font['label'] ) . '</label>';
 
 		} // End foreach
 
