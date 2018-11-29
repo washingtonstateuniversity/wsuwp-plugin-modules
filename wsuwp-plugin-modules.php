@@ -49,6 +49,8 @@ class WSUWP_Plugin_Modules {
 
 		} // End if
 
+		include_once __DIR__ . '/fonts/toolbox-fonts.php';
+
 	} // End setup_plugin
 
 
