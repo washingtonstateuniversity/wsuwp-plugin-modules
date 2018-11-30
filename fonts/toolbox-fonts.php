@@ -98,7 +98,7 @@ class Toolbox_Fonts {
 
 		$fonts = get_option( 'wsu_toolbox_google_fonts', array() );
 
-		foreach ( $this->google_fonts as $key => $label ) {
+		foreach ( $this->google_fonts as $key => $font ) {
 
 			$checked = ( in_array( $key, $fonts, true ) ) ? ' checked="checked"' : '';
 
