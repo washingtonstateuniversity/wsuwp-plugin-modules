@@ -101,9 +101,9 @@ class WSUWP_Video {
 
 	/**
 	 * Render YouTube video Embed
-	 * 
+	 *
 	 * @since 0.0.4
-	 * 
+	 *
 	 * @param array $args Settings for the video.
 	 * @param string $display Type of display.
 	 * @param array $classes Classes to add to wrapper.
@@ -124,12 +124,12 @@ class WSUWP_Video {
 
 	} // End the_youtube_video
 
-	
+
 	/**
 	 * Get video style for wrapper.
-	 * 
+	 *
 	 * @since 0.0.4
-	 * 
+	 *
 	 * @param array $args Module settings.
 	 *
 	 * @return string Style to be included.
@@ -166,9 +166,9 @@ class WSUWP_Video {
 
 	/**
 	 * Get video wrapper style.
-	 * 
+	 *
 	 * @since 0.0.4
-	 * 
+	 *
 	 * @param array $args Module settings.
 	 *
 	 * @return string Style to be included.
@@ -195,11 +195,11 @@ class WSUWP_Video {
 
 	/**
 	 * Convert style from array to string
-	 * 
+	 *
 	 * @since 0.0.4
-	 * 
+	 *
 	 * @param array $style
-	 * 
+	 *
 	 * @return string Style
 	 */
 	private function get_compressed_style( $style ) {
