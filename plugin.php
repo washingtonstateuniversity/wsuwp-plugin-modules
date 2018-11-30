@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WSUWP Toolbox
-Version: 0.0.4
+Version: 0.0.5
 Description: Plugin for allowing site creators to turn features on and off.
 Author: washingtonstateuniversity, Danial Bleile
 Author URI: https://web.wsu.edu/
