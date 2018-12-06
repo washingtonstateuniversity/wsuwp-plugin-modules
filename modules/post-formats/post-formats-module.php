@@ -33,7 +33,7 @@ class Post_Formats_Module extends Module {
 		'title'        => 'Post Formats',
 		'description'  => 'Enable Post Format Options',
 		'priority'     => 10,
-		'capability'   => 'Administrator',
+		'capability'   => 'administrator',
 		'default_on'   => false,
 	); // End $register_args
 

@@ -33,7 +33,7 @@ class Video_Module extends Module {
 		'title'        => 'Video',
 		'description'  => 'Video shortcode and related tools',
 		'priority'     => 10,
-		'capability'   => 'Administrator',
+		'capability'   => 'administrator',
 		'default_on'   => false,
 	); // End $register_args
 

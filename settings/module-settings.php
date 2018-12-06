@@ -103,8 +103,21 @@ class Module_Settings {
 				$default_on   = $module->is_default_on();
 				$is_active    = wsuwp_toolbox_is_active_module( $id, $default_on );
 
-				include __DIR__ . '/displays/module-card.php';
+				if ( ! empty( $capabilities ) ) {
 
+					if ( 'super admin' === $capabilities ) {
+
+						if ( current_user_can( 'super admin' ) ) {
+
+							include __DIR__ . '/displays/module-card.php';
+
+						} // End if
+					} else {
+
+						include __DIR__ . '/displays/module-card.php';
+
+					} // End if
+				} // End if
 			} // End if
 		} // End foreach
 

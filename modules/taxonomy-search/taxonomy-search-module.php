@@ -38,7 +38,7 @@ class Taxonomy_Search_Module extends Module {
 		'title'        => 'Taxonomy Search',
 		'description'  => 'Taxonomy Search Tools',
 		'priority'     => 10,
-		'capability'   => 'Super Admin',
+		'capability'   => 'super admin',
 	); // End $register_args
 
 	/**

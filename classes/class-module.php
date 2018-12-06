@@ -19,7 +19,7 @@ class Module {
 	 * @since 0.0.1
 	 * @var string $version Version of module.
 	 */
-	protected $version = '0.0.0';
+	protected $version = '0.0.1';
 
 	/**
 	 * Slug/ID for the module.
