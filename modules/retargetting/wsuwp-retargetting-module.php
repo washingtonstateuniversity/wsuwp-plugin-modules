@@ -82,9 +82,33 @@ class WSUWP_Retargetting_Module extends Module {
 
 	public function the_retargetting_code() {
 
-		$code = get_option( 'wsu_toolbox_retargetting_code', '' );
+		$current_pages = get_option( 'wsu_toolbox_retargetting_pages', array() );
 
-		echo $code;
+		if ( empty( $current_pages ) || in_array( 'All', $current_pages, true ) ) {
+
+			$code = get_option( 'wsu_toolbox_retargetting_code', '' );
+
+			// @codingStandardsIgnoreStart
+			echo $code;
+			// @codingStandardsIgnoreEnd
+
+		} else {
+
+			if ( is_singular() ) {
+
+				$permalink = get_the_permalink();
+
+				if ( in_array( $permalink, $current_pages, true ) ) {
+
+					$code = get_option( 'wsu_toolbox_retargetting_code', '' );
+
+					// @codingStandardsIgnoreStart
+					echo $code;
+					// @codingStandardsIgnoreEnd
+
+				} // End if
+			} // End if
+		} // End if
 
 	} // End the_retargetting_code
 
@@ -121,6 +145,14 @@ class WSUWP_Retargetting_Module extends Module {
 			)
 		);
 
+		register_setting(
+			'wsuwp_toolbox_retargetting',
+			'wsu_toolbox_retargetting_pages',
+			array(
+				'sanitize_callback' => array( $this, 'sanitize_code' ),
+			)
+		);
+
 		add_settings_section(
 			'wsuwp_toolbox_retargetting_section',         // ID used to identify this section and with which to register options
 			'Add Retargetting Code',                  // Title to be displayed on the administration page
@@ -143,6 +175,17 @@ class WSUWP_Retargetting_Module extends Module {
 			'wsu_toolbox_retargetting_code_field',                      // ID used to identify the field throughout the theme
 			'Code',                           // The label to the left of the option interface element
 			array( $this, 'add_wsu_toolbox_retargetting_code_field' ),   // The name of the function responsible for rendering the option interface
+			'wsuwp_toolbox_retargetting',                          // The page on which this option will be displayed
+			'wsuwp_toolbox_retargetting_section',         // The name of the section to which this field belongs
+			array(                              // The array of arguments to pass to the callback. In this case, just a description.
+				'Activate this setting to display the header.',
+			)
+		);
+
+		add_settings_field(
+			'wsu_toolbox_retargetting_pages_field',                      // ID used to identify the field throughout the theme
+			'Display On',                           // The label to the left of the option interface element
+			array( $this, 'add_wsu_toolbox_retargetting_page_field' ),   // The name of the function responsible for rendering the option interface
 			'wsuwp_toolbox_retargetting',                          // The page on which this option will be displayed
 			'wsuwp_toolbox_retargetting_section',         // The name of the section to which this field belongs
 			array(                              // The array of arguments to pass to the callback. In this case, just a description.
@@ -187,6 +230,58 @@ class WSUWP_Retargetting_Module extends Module {
 		include __DIR__ . '/displays/settings.php';
 
 	} // End add_retargetting_page
+
+
+	public function add_wsu_toolbox_retargetting_page_field() {
+
+		$current_pages = get_option( 'wsu_toolbox_retargetting_pages', array() );
+
+		if ( ! is_array( $current_pages ) ) {
+
+			$current_pages = array();
+
+		} // End if
+
+		$pages_select = $this->get_page_urls();
+
+		include __DIR__ . '/displays/form/page-select.php';
+
+	} // End add_wsu_toolbox_retargetting_location_field
+
+
+	protected function get_page_urls() {
+
+		$urls = array( 'All' );
+
+		$query_args = array(
+			'post_status'    => 'publish',
+			'post_type'      => 'any',
+			'posts_per_page' => -1,
+		);
+
+		$the_query = new \WP_Query( $query_args );
+
+		// The Loop
+		if ( $the_query->have_posts() ) {
+
+			while ( $the_query->have_posts() ) {
+
+				$the_query->the_post();
+
+				$urls[] = get_the_permalink();
+
+			} // End while
+
+			/* Restore original Post Data */
+			wp_reset_postdata();
+
+		} // End if
+
+		sort( $urls );
+
+		return $urls;
+
+	} // End get_pages_select
 
 
 	public function sanitize_code( $value ) {
