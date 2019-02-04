@@ -39,6 +39,7 @@ class WSUWP_Video {
 		'title'           => '',
 		'youtube_id'      => '',
 		'vimeo_id'        => '',
+		'kaltura_id'      => '',
 		'classes'         => '',
 		'autoplay'        => '',
 		'width'           => '100%',
@@ -86,15 +87,15 @@ class WSUWP_Video {
 
 		} // End if
 
-		$video_type = ( ! empty( $args['type'] ) ) ? $args['type'] : 'youtube';
+		if ( ! empty( $args['youtube_id'] ) ) {
 
-		switch ( $video_type ) {
+			$this->the_youtube_video( $args, $display, $classes );
 
-			case 'youtube':
-				$this->the_youtube_video( $args, $display, $classes );
-				break;
+		} elseif ( ! empty( $args['kaltura_id'] ) ) {
 
-		} // End switch
+			$this->the_kaltura_video( $args, $display, $classes );
+
+		} // end if
 
 	} // End the_module
 
@@ -121,6 +122,32 @@ class WSUWP_Video {
 		$video_style = $this->get_compressed_style( $this->get_video_style( $args ) );
 
 		include __DIR__ . '/displays/youtube.php';
+
+	} // End the_youtube_video
+
+
+	/**
+	 * Render Kaltura video Embed
+	 *
+	 * @since 0.0.4
+	 *
+	 * @param array $args Settings for the video.
+	 * @param string $display Type of display.
+	 * @param array $classes Classes to add to wrapper.
+	 */
+	private function the_kaltura_video( $args, $display, $classes ) {
+
+		$video_id = ( ! empty( $args['kaltura_id'] ) ) ? $args['kaltura_id'] : false;
+
+		$title = ( ! empty( $args['title'] ) ) ? $args['title'] : false;
+
+		$width = ( ! empty( $args['width'] ) ) ? $args['width'] : '100%';
+
+		$wrapper_style = $this->get_compressed_style( $this->get_video_wrapper_style( $args ) );
+
+		$video_style = $this->get_compressed_style( $this->get_video_style( $args ) );
+
+		include __DIR__ . '/displays/kaltura.php';
 
 	} // End the_youtube_video
 
