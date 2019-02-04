@@ -48,6 +48,7 @@ class Video_Module extends Module {
 		'display'         => 'player',
 		'title'           => '',
 		'youtube_id'      => '',
+		'kaltura_id'      => '',
 		'vimeo_id'        => '',
 		'classes'         => '',
 		'autoplay'        => '',
