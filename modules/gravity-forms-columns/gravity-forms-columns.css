@@ -1,0 +1,28 @@
+.gform_wrapper .gf-columns-wrapper.gform_fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gf-column-half {
+    width: 50%;
+}
+
+.gf-column-third {
+    width: 33.33%;
+}
+
+.gf-column-quarter {
+    width: 25%;
+}
+
+.gf-column-single {
+    width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .gf-column-quarter,
+    .gf-column-quarter,
+    .gf-column-half {
+        width: 100%;
+    }
+}

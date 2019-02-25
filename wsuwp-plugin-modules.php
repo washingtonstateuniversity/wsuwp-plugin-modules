@@ -66,6 +66,8 @@ class WSUWP_Plugin_Modules {
 
 		include_once __DIR__ . '/modules/retargetting/wsuwp-retargetting-module.php';
 
+		include_once __DIR__ . '/modules/gravity-forms-columns/gravity-forms-columns-module.php';
+
 		wsuwp_toolbox_register_module( 'wsuwp_taxonomy_search', __NAMESPACE__ . '\Taxonomy_Search_Module' );
 
 		wsuwp_toolbox_register_module( 'wsuwp_video', __NAMESPACE__ . '\Video_Module' );
@@ -73,6 +75,8 @@ class WSUWP_Plugin_Modules {
 		wsuwp_toolbox_register_module( 'wsuwp_post_formats', __NAMESPACE__ . '\Post_Formats_Module' );
 
 		wsuwp_toolbox_register_module( 'wsuwp_retargetting', __NAMESPACE__ . '\WSUWP_Retargetting_Module' );
+
+		wsuwp_toolbox_register_module( 'wsuwp_gravity_forms_columns', __NAMESPACE__ . '\Gravity_Forms_Columns_Module' );
 
 	} // End add_modules
 
