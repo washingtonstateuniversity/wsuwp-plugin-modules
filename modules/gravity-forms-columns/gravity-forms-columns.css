@@ -21,7 +21,7 @@
 
 @media only screen and (max-width: 800px) {
     .gf-column-quarter,
-    .gf-column-quarter,
+    .gf-column-third,
     .gf-column-half {
         width: 100%;
     }

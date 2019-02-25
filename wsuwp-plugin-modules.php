@@ -7,7 +7,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 class WSUWP_Plugin_Modules {
 
-	public static $version = '0.0.1';
+	public static $version = '1.2.1';
 
 	protected static $instance = null;
 
