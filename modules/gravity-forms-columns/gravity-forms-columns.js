@@ -39,7 +39,7 @@
 
         column_selector = column_selector.replace( '.', '');
 
-        fields.wrapAll( "<ul class='" + column_selector + "' />");
+        fields.wrapAll( "<li class='" + column_selector + "'><ul></ul></li>");
 
     }
     
