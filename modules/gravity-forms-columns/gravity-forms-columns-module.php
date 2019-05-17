@@ -18,7 +18,7 @@ class Gravity_Forms_Columns_Module extends Module {
 	 * @since 1.1.0
 	 * @var string $version Version of module.
 	 */
-	protected $version = '0.0.1';
+	protected $version = '0.0.2';
 
 	/**
 	 * Slug/ID for the module.
